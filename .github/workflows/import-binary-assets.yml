@@ -18,28 +18,31 @@ jobs:
       - name: Download binary assets from source repositories
         run: |
           set -e
-          mkdir -p "Task-1/assets"
+
+          mkdir -p "Rule-based AI-ML Learning Chatbot/assets"
+          mkdir -p "AI Movie Recommendation System"
+          mkdir -p "AI Text Recognition"
 
           curl -L --fail "https://raw.githubusercontent.com/mhdrishan04-code/task-1-rishan/main/chatbot%20screenshot.png" \
-            -o "Task-1/assets/chatbot screenshot.png"
+            -o "Rule-based AI-ML Learning Chatbot/assets/chatbot screenshot.png"
 
           curl -L --fail "https://raw.githubusercontent.com/mhdrishan04-code/task-1-rishan/main/chatbot%20working%20model.mp4" \
-            -o "Task-1/assets/chatbot working model.mp4"
+            -o "Rule-based AI-ML Learning Chatbot/assets/chatbot working model.mp4"
 
           curl -L --fail "https://raw.githubusercontent.com/mhdrishan04-code/task-3.1-rishan/main/logo.png" \
-            -o "Task-3.1/logo.png"
+            -o "AI Movie Recommendation System/logo.png"
 
           curl -L --fail "https://raw.githubusercontent.com/mhdrishan04-code/task-4-rishan/main/sample.png" \
-            -o "Task-4/sample.png"
+            -o "AI Text Recognition/sample.png"
 
       - name: Commit imported assets
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "Task-1/assets" "Task-3.1/logo.png" "Task-4/sample.png"
+          git add "Rule-based AI-ML Learning Chatbot/assets" "AI Movie Recommendation System/logo.png" "AI Text Recognition/sample.png"
           if git diff --cached --quiet; then
             echo "No binary assets to add."
           else
-            git commit -m "Add binary assets from original tasks"
+            git commit -m "Update binary asset paths"
             git push
           fi
